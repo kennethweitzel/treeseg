@@ -34,6 +34,10 @@ The per-tile prediction results are pieced together into one image and padding i
 - Since the pretrained TCD UNet was trained on the OAM dataset which is also the origin of the example image, it can not be ruled out that this image was used during the training process. This affects the expressiveness of the prediciton result.
 
 ## Visualization
+### Original image:
+<img src="https://github.com/kennethweitzel/treeseg/blob/main/images/tree_seg_orig.png" width="500">
 
+### Original + Prediction
+<img src="https://github.com/kennethweitzel/treeseg/blob/main/images/tree_seg_complete.png" width="500">
 
 
