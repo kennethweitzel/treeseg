@@ -2,20 +2,18 @@
 A simple method for binary segmentation of trees in aerial images. Takes an OpenAerialMap image and outputs a geojson of vector geometries referencing visible trees in the image. 
 
 ## Installation
-A conda installation is recommended, but any python environment should work. The install was tested under Ubuntu 20.04 and Python 3.13. 
-Create a conda environment and install the requirements as folllows:
-```bash 
-conda create -n treeseg python=3.13
-conda activate treeseg 
-pip install rasterio torchgeo
-```
+Build the Docker container via 
+```bash   
+docker build -t treeseg .
+```  
+
 
 ## Run
-Download suitable OAM image and execute the segmentation following this example: 
-```bash
-python3 -m treeseg d8dc67a5-c359-4d79-839a-3c78699ddfe6.tif --output tree_mask.geojson
-```
-Default execution device is GPU. If not available add argument `--device cpu`    
+Download a suitable OAM image (and rename it to input.tif) and execute the segmentation via: 
+```bash   
+docker run --rm -v "./output:/app/output" treeseg
+```  
+The generated output will appear in the output directory.
 The resulting geojson will contain the segmented trees as polygons in the same CRS as the input TIFF. Result can be examined in suitable GIS software.
 
 ## Approach
